@@ -1,0 +1,34 @@
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot=commands.Bot(command_prefix="/",intents=intents)
+
+@bot.event
+async def on_ready ():
+    print("se inicio el bot")
+
+@bot.command()
+async def hola(ctx):
+    await ctx.send("Hola, como estas")
+
+@bot.command()
+async def suma(ctx, num1:int, num2:int):
+    suma= num1+num2
+    await ctx.send(f"la suma de {num1}+{num2}={suma}")
+
+@bot.command()
+async def multiplicación(ctx, num1:int, num2:int):
+    multiplicación= num1+num2
+    await ctx.send(f"la multiplicación de {num1}+{num2}={multiplicación}")
+
+@bot.command()
+async def divición(ctx, num1:int, num2:int):
+    divición= num1+num2
+    await ctx.send(f"la divición de {num1}+{num2}={divición}")
+
+@bot.command()
+async def adios(ctx):
+    await ctx.send("Adios, cuidate")
